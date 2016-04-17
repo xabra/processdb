@@ -1,1 +1,1 @@
-import '../imports/api/lots.js';
+import '../imports/api/lots.js'; 
