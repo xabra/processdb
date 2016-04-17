@@ -1,8 +1,8 @@
 import { Template } from 'meteor/templating';
 
-import { Lots } from '../api/lots.js';
+import { Lots } from '../../api/lots.js';
 
-import './body.html';
+import './app-body.html';
 
 Template.body.helpers({
   lots() {
