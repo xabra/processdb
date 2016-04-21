@@ -3,8 +3,15 @@ import { Template } from 'meteor/templating';
 import { Lots } from '../../api/lots.js';
 
 import './app-body.html';
-import './HomeLayout.html';
-import './OrderCellsLayout.html';
+
+import './dashboard.html';
+import './home-layout.html';
+import './master-layout.html';
+import './nav-layout.html';
+import './order-cells-layout.html';
+import './cell-lots-layout.html';
+import './cell-lot.html';
+import './new-cell-lot-layout.html';
 
 Template.body.helpers({
   lots() {

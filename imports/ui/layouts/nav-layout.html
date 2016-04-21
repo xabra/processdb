@@ -1,0 +1,43 @@
+<template name="NavLayout">
+
+
+         <header>
+                    <nav class="navbar navbar-default navbar-fixed-top">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="/">Merlin Solar</a>
+                            <ul class="nav navbar-nav">
+                                <li class="inactive"><a href="/dashboard">Dashboard</a></li>
+                                <li class="dropdown"> <a href="/order" class="dropdown-toggle" data-toggle="dropdown" role="button">Orders <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/order/cells">Cells</a></li>
+                                        <li><a href="/order/strings">Strings</a></li>
+                                        <li><a href="/order/modules">Modules</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="/order/orders">Orders</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown"> <a href="/attach" class="dropdown-toggle" data-toggle="dropdown" role="button">Attach <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/attach/new-cell-lot">New Cell Lot</a></li>
+                                        <li><a href="/attach/load">Load Materials</a></li>
+                                        <li><a href="/attach/maintenance">Log Maintenance</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="/attach/cell-lots">Cell Lots</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown"> <a href="inspect" class="dropdown-toggle" data-toggle="dropdown" role="button">Inspect <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/inspect/inspect-cells">Inspect Cell Lot</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="/inspect/cell-lots">Cell Lots</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    {{> loginButtons}}
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </header>
+
+</template>

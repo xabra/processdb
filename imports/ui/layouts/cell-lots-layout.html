@@ -1,0 +1,23 @@
+<template name="CellLotsLayout">
+    <h1>cell-lots</h1>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td><input type="checkbox" name="all-selected"></td>
+                    <th>Lot #</th>
+                    <th>Count</th>
+                    <th>Type</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {{#each lots}}
+                {{> cellLot}}
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+</template>
