@@ -13,6 +13,7 @@ import '../../ui/layouts/app-body.js';
 
 // ----- Below here are the route definitions -----
 
+//--- HOME
 FlowRouter.route('/', {
   name: 'Home',
   action(params, queryParams) {
@@ -20,31 +21,76 @@ FlowRouter.route('/', {
   }
 });
 
+//--- DASHBOARD
 FlowRouter.route('/dashboard', {
   name: 'Dashboard',
   action(params, queryParams) {
     BlazeLayout.render('MasterLayout', {nav: "NavLayout", main: "Dashboard"});
   }
 });
-FlowRouter.route('/orders/cells', {
+
+// --- ORDERS
+FlowRouter.route('/order/cells', {
   name: 'OrderCells',
   action(params, queryParams) {
     BlazeLayout.render('MasterLayout', {nav: "NavLayout", main: "OrderCellsLayout"});
   }
 });
-
-FlowRouter.route('/attach/cell-lots', {
-  name: 'Cell-Lots',
+FlowRouter.route('/order/strings', {
+  name: 'OrderStrings',
   action(params, queryParams) {
-    BlazeLayout.render('MasterLayout', {nav: "NavLayout", main: "CellLotsLayout"});
-    console.log("Cell Lots Route");
+    BlazeLayout.render('MasterLayout', {nav: "NavLayout", main: "OrderStringsLayout"});
+  }
+});
+FlowRouter.route('/order/modules', {
+  name: 'OrderModules',
+  action(params, queryParams) {
+    BlazeLayout.render('MasterLayout', {nav: "NavLayout", main: "OrderModulesLayout"});
+  }
+});
+FlowRouter.route('/order/orders', {
+  name: 'OrderList',
+  action(params, queryParams) {
+    BlazeLayout.render('MasterLayout', {nav: "NavLayout", main: "OrderListLayout"});
   }
 });
 
+//--- ATTACH
 FlowRouter.route('/attach/new-cell-lot', {
   name: 'New-Cell-Lots',
   action(params, queryParams) {
     BlazeLayout.render('MasterLayout', {nav: "NavLayout", main: "NewCellLotLayout"});
-    console.log("New Cell Lot Route");
+  }
+});
+FlowRouter.route('/attach/load-materials', {
+  name: 'LoadMaterials',
+  action(params, queryParams) {
+    BlazeLayout.render('MasterLayout', {nav: "NavLayout", main: "LoadMaterialsLayout"});
+  }
+});
+FlowRouter.route('/attach/log-maintenance', {
+  name: 'LogMaintenance',
+  action(params, queryParams) {
+    BlazeLayout.render('MasterLayout', {nav: "NavLayout", main: "LogMaintenanceLayout"});
+  }
+});
+FlowRouter.route('/attach/cell-lots', {
+  name: 'Cell-Lots',
+  action(params, queryParams) {
+    BlazeLayout.render('MasterLayout', {nav: "NavLayout", main: "CellLotsLayout"});
+  }
+});
+
+//--- INSPECT
+FlowRouter.route('/inspect/cell-lot', {
+  name: 'InspectCellLot',
+  action(params, queryParams) {
+    BlazeLayout.render('MasterLayout', {nav: "NavLayout", main: "InspectCellLotLayout"});
+  }
+});
+FlowRouter.route('/inspect/cell-lots', {
+  name: 'InspectCellLots',
+  action(params, queryParams) {
+    BlazeLayout.render('MasterLayout', {nav: "NavLayout", main: "InspectCellLotsLayout"});
   }
 });

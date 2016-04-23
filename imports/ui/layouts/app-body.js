@@ -8,10 +8,20 @@ import './dashboard.html';
 import './home-layout.html';
 import './master-layout.html';
 import './nav-layout.html';
+
 import './order-cells-layout.html';
+import './order-strings-layout.html';
+import './order-modules-layout.html';
+import './order-list-layout.html';
+
 import './cell-lots-layout.html';
 import './cell-lot.html';
 import './new-cell-lot-layout.html';
+import './load-materials-layout.html';
+import './log-maintenance-layout.html';
+
+import './inspect-cell-lot-layout.html';
+import './inspect-cell-lots-layout.html';
 
 Template.body.helpers({
   lots() {
