@@ -23,13 +23,13 @@ import './log-maintenance-layout.html';
 import './inspect-cell-lot-layout.html';
 import './inspect-cell-lots-layout.html';
 
-Template.body.helpers({
+Template.CellLotsLayout.helpers({
   lots() {
     return Lots.find({});
   },
 });
 
-Template.body.events({
+Template.NewCellLotLayout.events({
   'submit .new-lot'(event) {
     // Prevent default browser form submit
     //event.preventDefault();
