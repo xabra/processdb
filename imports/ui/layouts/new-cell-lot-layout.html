@@ -1,8 +1,32 @@
 <template name="NewCellLotLayout">
+    <h1>New Lot</h1>
     <form class="new-lot">
         <input type="text" name="lotID" placeholder="Lot ID">
-        <input type="text" name="count" placeholder="Count">
         <input type="text" name="cellType" placeholder="Cell Type">
-        <input type="submit" value="Submit">
+
+        <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-primary active">
+                <input type="radio" name="options" id="option1" autocomplete="off" checked> MANUFACTURING
+            </label>
+            <label class="btn btn-primary">
+                <input type="radio" name="options" id="option2" autocomplete="off"> ENGINEERING
+            </label>
+            <label class="btn btn-primary">
+                <input type="radio" name="options" id="option3" autocomplete="off"> PROCESS
+            </label>
+        </div>
+
+        <input type="text" name="grid-count" placeholder="Grids">
+        <input type="text" name="wafer-count" placeholder="Wafers">
+        <input type="text" name="mesh-count" placeholder="Meshes">
+        <input type="text" name="cell-count" placeholder="Cells Out">
+        <input type="text" name="camera-rejects" placeholder="Camera Rejects">
+        <input type="text" name="operator-rejects" placeholder="Operator Rejects">
+
+        <textarea name="textarea" rows="2" cols="50" placeholder="Comments"></textarea>
+
+
+
+        <input type="submit" value="Create">
     </form>
 </template>

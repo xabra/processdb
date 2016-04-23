@@ -37,7 +37,6 @@ Template.NewCellLotLayout.events({
     // Get value from form element
     const target = event.target;
     const lotID = target.lotID.value;
-    const count = target.count.value;
     const cellType = target.cellType.value;
 
     // Insert a new lot into the collection
@@ -51,7 +50,6 @@ Template.NewCellLotLayout.events({
     // Clear form
 
     target. lotID.value = '';
-    target.count.value = '';
     target.cellType.value = '';
 
     return false;    // Prevent screen clear
