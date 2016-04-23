@@ -23,35 +23,71 @@ import './log-maintenance-layout.html';
 import './inspect-cell-lot-layout.html';
 import './inspect-cell-lots-layout.html';
 
+Template.registerHelper('formatDate', function(date) {
+    return moment(date).format('MMM DD YYYY, h:mm a');
+});
+
 Template.CellLotsLayout.helpers({
-  lots() {
-    return Lots.find({});
-  },
+    lots() {
+        return Lots.find({});
+    },
 });
 
 Template.NewCellLotLayout.events({
-  'submit .new-lot'(event) {
-    // Prevent default browser form submit
-    //event.preventDefault();
+    'submit .new-lot'(event) {
+        // Prevent default browser form submit
+        //event.preventDefault();
 
-    // Get value from form element
-    const target = event.target;
-    const lotID = target.lotID.value;
-    const cellType = target.cellType.value;
+        // Get value from form element
+        const target = event.target;
 
-    // Insert a new lot into the collection
-    Lots.insert({
-      lotID,
-      count,
-      cellType,
-      createdAt: new Date(), // current time
-    });
+        const lotID = target.lotID.value;
+        const cellType = target.cellType.value;
+        const order = target.order.value;
+        const recipe = target.recipe.value;
+        //const lotType = target.lotType.value;
+        const gridCount = target.gridCount.value;
+        const waferCount = target.waferCount.value;
+        const meshCount = target.meshCount.value;
+        const cellCount = target.cellCount.value;
+        const cameraRejects = target.cameraRejects.value;
+        const operatorRejects = target.operatorRejects.value;
+        const lotComment = target.lotComment.value;
 
-    // Clear form
 
-    target. lotID.value = '';
-    target.cellType.value = '';
+        // Insert a new lot into the collection
+        Lots.insert({
+            lotID,
+            cellType,
+            order,
+            recipe,
+            //lotType,
+            gridCount,
+            waferCount,
+            meshCount,
+            cellCount,
+            cameraRejects,
+            operatorRejects,
+            lotComment,
+            createdAt: new Date(), // current time
+        });
 
-    return false;    // Prevent screen clear
-  },
+        // Clear form
+
+        target.lotID.value = '';
+        target.cellType.value = '';
+        target.order.value = '';
+        target.recipe.value = '';
+        //target.lotType.value = '';
+        target.gridCount.value = '';
+        target.waferCount.value = '';
+        target.meshCount.value = '';
+        target.cellCount.value = '';
+        target.cameraRejects.value = '';
+        target.operatorRejects.value = '';
+        target.lotComment.value = '';
+
+
+        return false;    // Prevent screen clear
+    },
 });
