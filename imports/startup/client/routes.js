@@ -33,26 +33,8 @@ FlowRouter.route('/dashboard', {
 });
 
 // --- ORDERS
-FlowRouter.route('/order/cells', {
+FlowRouter.route('/orders', {
   name: 'OrderCells',
-  action(params, queryParams) {
-    BlazeLayout.render('MasterLayout', {nav: "NavLayout", main: "OrderCellsLayout"});
-  }
-});
-FlowRouter.route('/order/strings', {
-  name: 'OrderStrings',
-  action(params, queryParams) {
-    BlazeLayout.render('MasterLayout', {nav: "NavLayout", main: "OrderStringsLayout"});
-  }
-});
-FlowRouter.route('/order/modules', {
-  name: 'OrderModules',
-  action(params, queryParams) {
-    BlazeLayout.render('MasterLayout', {nav: "NavLayout", main: "OrderModulesLayout"});
-  }
-});
-FlowRouter.route('/order/orders', {
-  name: 'OrderList',
   action(params, queryParams) {
     BlazeLayout.render('MasterLayout', {nav: "NavLayout", main: "OrderListLayout"});
   }

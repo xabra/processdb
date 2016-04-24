@@ -11,10 +11,8 @@ import './home-layout.html';
 import './master-layout.html';
 import './nav-layout.html';
 
-import './order-cells-layout.html';
-import './order-strings-layout.html';
-import './order-modules-layout.html';
 import './order-list-layout.html';
+import './cell-order.html';
 
 import './cell-lots-layout.html';
 import './cell-lot.html';
@@ -95,9 +93,13 @@ Template.NewCellLotLayout.events({
     },
 });
 
+Template.OrderListLayout.helpers({
+    cellOrders() {
+        return CellOrders.find({});
+    },
+});
 
-
-Template.OrderCellsLayout.events({
+Template.OrderListLayout.events({
     'submit .order-cells'(event) {
         // Prevent default browser form submit
         //event.preventDefault();
@@ -108,6 +110,7 @@ Template.OrderCellsLayout.events({
         const cellType = target.cellType.value;
         const project = target.project.value;
         const cellCount = target.cellCount.value;
+        const comment = target.comment.value;
 
         // Insert a new lot into the collection
         CellOrders.insert({
@@ -116,6 +119,7 @@ Template.OrderCellsLayout.events({
             cellCount,
             by: Meteor.user().username,
             createdAt: new Date(), // current time
+            comment,
         });
 
         // Clear form
@@ -123,7 +127,7 @@ Template.OrderCellsLayout.events({
         target.cellType.value = '';
         target.project.value = '';
         target.cellCount.value = '';
-
+        target.comment.value = '';
         return false;    // Prevent screen clear
     },
 });

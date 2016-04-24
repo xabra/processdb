@@ -1,7 +1,36 @@
 <template name="OrderListLayout">
 
-        <h1>
-            Orders
-        </h1>
+        <h1>Orders</h1>
+
+        <form class="order-cells">
+
+            <input type="text" name="cellType" placeholder="Cell Type">
+            <input type="text" name="project" placeholder="Project">
+            <input type="text" name="cellCount" placeholder="Quantity">
+            <input type="text" name="comment" placeholder="Comment">
+            <input type="submit" value="Order">
+        </form>
+
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" name="all-selected"></th>
+                        <th>Cell Type</th>
+                        <th>Project</th>
+                        <th>Quantity</th>
+                        <th>Ordered By</th>
+                        <th>Date</th>
+                        <th>Comment</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {{#each cellOrders}}
+                    {{> CellOrder}}
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
 
 </template>
