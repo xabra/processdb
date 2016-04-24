@@ -119,6 +119,8 @@ Template.OrderListLayout.events({
             cellCount,
             by: Meteor.user().username,
             createdAt: new Date(), // current time
+            completedCount: '0',
+            status: 'OPEN',
             comment,
         });
 
