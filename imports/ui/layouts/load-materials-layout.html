@@ -1,5 +1,26 @@
 <template name="LoadMaterialsLayout">
     <h1>
-        Load Materials
+        Load Consumables
     </h1>
+
+    <form class="new-lot">
+
+        <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-primary active">
+                <input type="radio" name="options" id="option1" autocomplete="off" checked> Wafers
+            </label>
+            <label class="btn btn-primary">
+                <input type="radio" name="options" id="option2" autocomplete="off"> Grids
+            </label>
+            <label class="btn btn-primary">
+                <input type="radio" name="options" id="option3" autocomplete="off"> Mesh
+            </label>
+        </div>
+
+        <input type="text" name="tool" placeholder="Tool">
+
+
+
+        <input type="submit" value="Save">
+    </form>
 </template>

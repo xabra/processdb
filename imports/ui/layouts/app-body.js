@@ -1,6 +1,8 @@
 import { Template } from 'meteor/templating';
 
 import { Lots } from '../../api/lots.js';
+import { Orders } from '../../api/orders.js';
+import { EquipmentLogs } from '../../api/equipment-logs.js';
 
 import './app-body.html';
 
