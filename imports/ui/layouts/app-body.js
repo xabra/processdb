@@ -1,7 +1,7 @@
 import { Template } from 'meteor/templating';
 
 import { Lots } from '../../api/lots.js';
-import { Orders } from '../../api/orders.js';
+import { CellOrders } from '../../api/cell-orders.js';
 import { EquipmentLogs } from '../../api/equipment-logs.js';
 
 import './app-body.html';
@@ -71,6 +71,7 @@ Template.NewCellLotLayout.events({
             cameraRejects,
             operatorRejects,
             lotComment,
+            by: Meteor.user().username,
             createdAt: new Date(), // current time
         });
 
@@ -89,6 +90,39 @@ Template.NewCellLotLayout.events({
         target.operatorRejects.value = '';
         target.lotComment.value = '';
 
+
+        return false;    // Prevent screen clear
+    },
+});
+
+
+
+Template.OrderCellsLayout.events({
+    'submit .order-cells'(event) {
+        // Prevent default browser form submit
+        //event.preventDefault();
+
+        // Get value from form element
+        const target = event.target;
+
+        const cellType = target.cellType.value;
+        const project = target.project.value;
+        const cellCount = target.cellCount.value;
+
+        // Insert a new lot into the collection
+        CellOrders.insert({
+            cellType,
+            project,
+            cellCount,
+            by: Meteor.user().username,
+            createdAt: new Date(), // current time
+        });
+
+        // Clear form
+
+        target.cellType.value = '';
+        target.project.value = '';
+        target.cellCount.value = '';
 
         return false;    // Prevent screen clear
     },
