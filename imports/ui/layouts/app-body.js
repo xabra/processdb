@@ -1,4 +1,5 @@
 import { Template } from 'meteor/templating';
+import { ReactiveDict } from 'meteor/reactive-dict';
 
 import { Lots } from '../../api/lots.js';
 import { CellOrders } from '../../api/cell-orders.js';
@@ -25,10 +26,6 @@ import './inspect-cell-lots-layout.html';
 
 Template.registerHelper('formatDate', function(date) {
     return moment(date).format('MMM DD YYYY, h:mm a');
-});
-
-Template.body.onCreated(function bodyOnCreated() {
-  this.state = new ReactiveDict();
 });
 
 Template.CellLotsLayout.helpers({
@@ -97,13 +94,28 @@ Template.NewCellLotLayout.events({
     },
 });
 
+Template.OrderListLayout.onCreated(function bodyOnCreated() {
+    this.state = new ReactiveDict();
+});
+
 Template.OrderListLayout.helpers({
     cellOrders() {
+        const instance = Template.instance();
+        if (instance.state.get('showOpenOrders')) {
+            // If showOpenOrders is checked, filter tasks
+            return CellOrders.find({ status: 'OPEN' });
+        }
+        // Otherwise, return all of the tasks
+
         return CellOrders.find({});
     },
 });
 
 Template.OrderListLayout.events({
+    'change .show-open-orders input'(event, instance) {
+        instance.state.set('showOpenOrders', event.target.checked);
+    },
+    // --- Adds new order to the Orders collection
     'submit .order-cells'(event) {
         // Prevent default browser form submit
         //event.preventDefault();
