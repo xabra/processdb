@@ -96,6 +96,7 @@ Template.NewCellLotLayout.events({
 
 Template.OrderListLayout.onCreated(function bodyOnCreated() {
     this.state = new ReactiveDict();
+    this.state.set('showOpenOrders', true)
 });
 
 Template.OrderListLayout.helpers({
@@ -108,6 +109,9 @@ Template.OrderListLayout.helpers({
         // Otherwise, return all of the tasks
 
         return CellOrders.find({});
+    },
+    openCount() {
+        return CellOrders.find({ status: 'OPEN'}).count();
     },
 });
 
