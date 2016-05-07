@@ -1,39 +1,49 @@
 <template name="OrderListLayout">
 
-        <h1>Orders</h1>
+    <h2>Orders</h2>
 
-        <form class="order-cells">
+    <label class="hide-completed">
+        <input type="checkbox" />
+        Hide Completed Orders
+    </label>
 
-            <input type="text" name="cellType" placeholder="Cell Type">
-            <input type="text" name="project" placeholder="Project">
-            <input type="text" name="cellCount" placeholder="Quantity">
-            <input type="text" name="comment" placeholder="Comment">
-            <input type="submit" value="Order">
-        </form>
+    <hr>
 
-        <div class="table-responsive">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Cell Type</th>
-                        <th>Project</th>
-                        <th>Ordered</th>
-                        <th>Completed</th>
-                        <th>Ordered By</th>
-                        <th>Date</th>
-                        <th>Status</th>
-                        <th><span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span></th>                  
-                        <th><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></th>
-                        <th>Comment</th>
-                    </tr>
-                </thead>
+    <form class="order-cells">
 
-                <tbody>
-                    {{#each cellOrders}}
-                    {{> CellOrder}}
-                    {{/each}}
-                </tbody>
-            </table>
-        </div>
+        <input type="text" name="cellType" placeholder="Cell Type">
+        <input type="text" name="project" placeholder="Project">
+        <input type="text" name="cellCount" placeholder="Quantity">
+        <input type="text" name="comment" placeholder="Comment">
+        <input type="submit" value="Order">
+    </form>
+
+    <hr>
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Order #</th>
+                    <th>Cell Type</th>
+                    <th>Project</th>
+                    <th>Ordered</th>
+                    <th>Completed</th>
+                    <th>Ordered By</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th><span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span></th>
+                    <th><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></th>
+                    <th>Comment</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {{#each cellOrders}}
+                {{> CellOrder}}
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
 
 </template>

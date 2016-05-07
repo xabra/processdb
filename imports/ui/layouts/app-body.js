@@ -27,6 +27,10 @@ Template.registerHelper('formatDate', function(date) {
     return moment(date).format('MMM DD YYYY, h:mm a');
 });
 
+Template.body.onCreated(function bodyOnCreated() {
+  this.state = new ReactiveDict();
+});
+
 Template.CellLotsLayout.helpers({
     lots() {
         return Lots.find({});
@@ -114,6 +118,7 @@ Template.OrderListLayout.events({
 
         // Insert a new lot into the collection
         CellOrders.insert({
+            orderID: '1',
             cellType,
             project,
             cellCount,

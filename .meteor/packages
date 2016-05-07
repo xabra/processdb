@@ -27,3 +27,4 @@ accounts-ui
 kadira:flow-router
 kadira:blaze-layout
 momentjs:moment
+reactive-dict
