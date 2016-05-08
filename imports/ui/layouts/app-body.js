@@ -7,6 +7,8 @@ import { EquipmentLogs } from '../../api/equipment-logs.js';
 import { Counters } from '../../api/counters.js';
 import { getNextSequence } from '../../api/counters.js';
 
+import { WaferTypes } from  '../../api/wafer-types.js';
+
 import './app-body.html';
 
 import './dashboard.html';
@@ -31,6 +33,9 @@ Template.registerHelper('formatDate', function(date) {
     return moment(date).format('MMM DD YYYY, h:mm a');
 });
 
+Template.registerHelper('waferTypes', function() {
+    return WaferTypes.find({});
+});
 
 
 // --- CellLots ---
@@ -117,8 +122,16 @@ Template.OrderListLayout.helpers({
 
         return CellOrders.find({});
     },
+
     openCount() {
         return CellOrders.find({ status: 'OPEN'}).count();
+    },
+
+    debugWaferTypes(){
+        for(i=0;i<3;i++){
+            console.log("Hi", waferTypes()[i].type);
+        }
+        return 0;
     },
 });
 

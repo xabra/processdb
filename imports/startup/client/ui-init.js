@@ -1,23 +1,17 @@
-const recipes = [
+export const recipes = [
     'M0',
     'M1',
     '2 (M2)',
     'Multi',
 ];
 
-const tools = [
+export const tools = [
     'Attach 1',
     'Layup 1',
 ];
 
-const waferTypes = [
-    'M0',
-    'M1',
-    'M2',
-    'MULTI'
-];
 
-const projects = [
+export const projects = [
     'Horizon',
     'Glass-Rail',
     'Glass-GLass',
