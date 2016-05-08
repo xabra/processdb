@@ -4,6 +4,8 @@ import { ReactiveDict } from 'meteor/reactive-dict';
 import { Lots } from '../../api/lots.js';
 import { CellOrders } from '../../api/cell-orders.js';
 import { EquipmentLogs } from '../../api/equipment-logs.js';
+import { Counters } from '../../api/counters.js';
+import { getNextSequence } from '../../api/counters.js';
 
 import './app-body.html';
 
@@ -24,10 +26,14 @@ import './log-maintenance-layout.html';
 import './inspect-cell-lot-layout.html';
 import './inspect-cell-lots-layout.html';
 
+// --- Global Helpers ---
 Template.registerHelper('formatDate', function(date) {
     return moment(date).format('MMM DD YYYY, h:mm a');
 });
 
+
+
+// --- CellLots ---
 Template.CellLotsLayout.helpers({
     lots() {
         return Lots.find({});
@@ -94,9 +100,10 @@ Template.NewCellLotLayout.events({
     },
 });
 
+// --- OrderList ---
 Template.OrderListLayout.onCreated(function bodyOnCreated() {
     this.state = new ReactiveDict();
-    this.state.set('showOpenOrders', true)
+    this.state.set('showOpenOrders', true);
 });
 
 Template.OrderListLayout.helpers({
@@ -134,7 +141,7 @@ Template.OrderListLayout.events({
 
         // Insert a new lot into the collection
         CellOrders.insert({
-            orderID: '1',
+            orderID: getNextSequence("orderid"),
             cellType,
             project,
             cellCount,
