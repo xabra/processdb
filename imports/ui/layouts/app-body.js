@@ -8,6 +8,8 @@ import { Counters } from '../../api/counters.js';
 import { getNextSequence } from '../../api/counters.js';
 
 import { WaferTypes } from  '../../api/wafer-types.js';
+import { Projects } from  '../../api/projects.js';
+import { Efficiencies } from  '../../api/efficiencies.js';
 
 import './app-body.html';
 
@@ -36,7 +38,17 @@ Template.registerHelper('formatDate', function(date) {
 Template.registerHelper('waferTypes', function() {
     return WaferTypes.find({});
 });
+Template.registerHelper('projects', function() {
+    return Projects.find({});
+});
 
+Template.registerHelper('efficiencies', function() {
+    return Efficiencies.find({});
+});
+
+Template.registerHelper('isEmpty', function(str) {
+    return (!str || 0 === str.length);
+});
 
 // --- CellLots ---
 Template.CellLotsLayout.helpers({
@@ -151,6 +163,8 @@ Template.OrderListLayout.events({
         const project = target.project.value;
         const cellCount = target.cellCount.value;
         const comment = target.comment.value;
+        const maxEfficiency = target.maxEfficiency.value;
+        const minEfficiency = target.minEfficiency.value;
 
         // Insert a new lot into the collection
         CellOrders.insert({
@@ -158,6 +172,8 @@ Template.OrderListLayout.events({
             cellType,
             project,
             cellCount,
+            maxEfficiency,
+            minEfficiency,
             by: Meteor.user().username,
             createdAt: new Date(), // current time
             completedCount: '0',
@@ -167,8 +183,6 @@ Template.OrderListLayout.events({
 
         // Clear form
 
-        target.cellType.value = '';
-        target.project.value = '';
         target.cellCount.value = '';
         target.comment.value = '';
         return false;    // Prevent screen clear

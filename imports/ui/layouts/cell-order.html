@@ -1,14 +1,18 @@
 <template name="CellOrder">
     <tr>
         <td>{{orderID}}</td>
-        <td>{{cellType}}</td>
         <td>{{project}}</td>
+        <td>{{cellType}}</td>
         <td>{{cellCount}}</td>
         <td>{{completedCount}}</td>
         <td>{{by}}</td>
         <td>{{formatDate (createdAt) }}</td>
         <td>{{status}}</td>
         <td><span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span></td>
-        <td>{{comment}}</td>
+        <td>{{#if isEmpty (comment) }}
+            {{else}}
+            <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+            {{/if}}
+        </td>
     </tr>
 </template>

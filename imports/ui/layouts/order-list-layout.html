@@ -11,13 +11,30 @@
 
     <form class="order-cells">
         <!-- <input type="text" name="cellType" placeholder="Cell Type"> -->
+        <select class="form-control" name="project">
+            {{#each project in projects}}
+            <option>{{project.name}}</option>
+            {{/each}}
+        </select>
+
         <select class="form-control" name="cellType">
             {{#each waferType in waferTypes}}
             <option>{{waferType.type}}</option>
             {{/each}}
         </select>
-        <input type="text" name="project" placeholder="Project">
-        <!-- <input type="text" name="project" placeholder="Project"> -->
+
+        <select class="form-control" name="minEfficiency">
+            {{#each efficiency in efficiencies}}
+            <option>{{efficiency.value}}</option>
+            {{/each}}
+        </select>
+
+
+        <select class="form-control" name="maxEfficiency">
+            {{#each efficiency in efficiencies}}
+            <option>{{efficiency.value}}</option>
+            {{/each}}
+        </select>
         <input type="text" name="cellCount" placeholder="Quantity">
         <input type="text" name="comment" placeholder="Comment">
         <input type="submit" value="Order">
@@ -31,8 +48,8 @@
             <thead>
                 <tr>
                     <th>Order #</th>
-                    <th>Cell Type</th>
                     <th>Project</th>
+                    <th>Cell Type</th>
                     <th>Ordered</th>
                     <th>Completed</th>
                     <th>Ordered By</th>
