@@ -1,11 +1,6 @@
-<template name="OrderListLayout">
+<template name="OrderCellsLayout">
 
-    <h2>Cell Orders  <span class="badge">{{openCount}}</span></h2>
-
-    <label class="show-open-orders">
-        <input type="checkbox" checked="true"/>
-        Show Open Orders
-    </label>
+    <h2>Order Cells </h2>
 
     <hr>
 
@@ -58,15 +53,15 @@
 
             <div class="form-group">
                 <label for="cellCount" class="col-sm-2 text-right">Quantity</label>
-                <div class="col-sm-10">
-                    <input type="text" name="cellCount" placeholder="Quantity">
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" name="cellCount" placeholder="Number of cells">
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="comment" class="col-sm-2 text-right">Comment</label>
-                <div class="col-sm-10">
-                    <input type="text" name="comment" placeholder="Comment">
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" name="comment" placeholder="Comment">
                 </div>
             </div>
             <div class="form-group">
@@ -78,32 +73,5 @@
 
     </div>
 
-    <hr>
-
-    <div class="table-responsive">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Order #</th>
-                    <th>Project</th>
-                    <th>Cell Type</th>
-                    <th>Ordered</th>
-                    <th>Completed</th>
-                    <th>Ordered By</th>
-                    <th>Date</th>
-                    <th>Status</th>
-                    <th>Attach</th>
-                    <th>Comment</th>
-                    <!-- <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span> -->
-                </tr>
-            </thead>
-
-            <tbody>
-                {{#each cellOrders}}
-                {{> CellOrder}}
-                {{/each}}
-            </tbody>
-        </table>
-    </div>
 
 </template>

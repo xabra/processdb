@@ -1,0 +1,39 @@
+<template name="OrdersListLayout">
+
+    <h2>Cell Orders  <span class="badge">{{openCount}}</span></h2>
+
+    <label class="show-open-orders">
+        <input type="checkbox" checked="true"/>
+        Show Open Orders
+    </label>
+
+    <hr>
+
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Order #</th>
+                    <th>Project</th>
+                    <th>Cell Type</th>
+                    <th>Ordered</th>
+                    <th>Completed</th>
+                    <th>Ordered By</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Attach</th>
+                    <th>Comment</th>
+                    <!-- <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span> -->
+                </tr>
+            </thead>
+
+            <tbody>
+                {{#each cellOrders}}
+                {{> CellOrder}}
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+</template>

@@ -18,7 +18,8 @@ import './home-layout.html';
 import './master-layout.html';
 import './nav-layout.html';
 
-import './order-list-layout.html';
+import './orders-list-layout.html';
+import './order-cells-layout.html';
 import './cell-order.html';
 
 import './cell-lots-layout.html';
@@ -118,12 +119,12 @@ Template.NewCellLotLayout.events({
 });
 
 // --- OrderList ---
-Template.OrderListLayout.onCreated(function bodyOnCreated() {
+Template.OrdersListLayout.onCreated(function bodyOnCreated() {
     this.state = new ReactiveDict();
     this.state.set('showOpenOrders', true);
 });
 
-Template.OrderListLayout.helpers({
+Template.OrdersListLayout.helpers({
     cellOrders() {
         const instance = Template.instance();
         if (instance.state.get('showOpenOrders')) {
@@ -138,19 +139,15 @@ Template.OrderListLayout.helpers({
     openCount() {
         return CellOrders.find({ status: 'OPEN'}).count();
     },
-
-    debugWaferTypes(){
-        for(i=0;i<3;i++){
-            console.log("Hi", waferTypes()[i].type);
-        }
-        return 0;
-    },
 });
 
-Template.OrderListLayout.events({
+Template.OrdersListLayout.events({
     'change .show-open-orders input'(event, instance) {
         instance.state.set('showOpenOrders', event.target.checked);
     },
+});
+
+Template.OrderCellsLayout.events({
     // --- Adds new order to the Orders collection
     'submit #order-cells'(event) {
         // Prevent default browser form submit

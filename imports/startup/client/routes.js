@@ -33,10 +33,16 @@ FlowRouter.route('/dashboard', {
 });
 
 // --- ORDERS
-FlowRouter.route('/orders', {
+FlowRouter.route('/orders/order-cells', {
   name: 'OrderCells',
   action(params, queryParams) {
-    BlazeLayout.render('MasterLayout', {nav: "NavLayout", main: "OrderListLayout"});
+    BlazeLayout.render('MasterLayout', {nav: "NavLayout", main: "OrderCellsLayout"});
+  }
+});
+FlowRouter.route('/orders/orders-list', {
+  name: 'OrdersList',
+  action(params, queryParams) {
+    BlazeLayout.render('MasterLayout', {nav: "NavLayout", main: "OrdersListLayout"});
   }
 });
 
