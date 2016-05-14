@@ -152,7 +152,7 @@ Template.OrderListLayout.events({
         instance.state.set('showOpenOrders', event.target.checked);
     },
     // --- Adds new order to the Orders collection
-    'submit .order-cells'(event) {
+    'submit #order-cells'(event) {
         // Prevent default browser form submit
         //event.preventDefault();
 

@@ -1,6 +1,6 @@
 <template name="OrderListLayout">
 
-    <h2>Orders: {{openCount}}</h2>
+    <h2>Cell Orders  <span class="badge">{{openCount}}</span></h2>
 
     <label class="show-open-orders">
         <input type="checkbox" checked="true"/>
@@ -9,37 +9,74 @@
 
     <hr>
 
-    <form class="order-cells">
-        <!-- <input type="text" name="cellType" placeholder="Cell Type"> -->
-        <select class="form-control" name="project">
-            {{#each project in projects}}
-            <option>{{project.name}}</option>
-            {{/each}}
-        </select>
+    <div class="container-fluid">
 
-        <select class="form-control" name="cellType">
-            {{#each waferType in waferTypes}}
-            <option>{{waferType.type}}</option>
-            {{/each}}
-        </select>
+        <form class="form-horizontal" id="order-cells">
+            <!-- <input type="text" name="cellType" placeholder="Cell Type"> -->
 
-        <select class="form-control" name="minEfficiency">
-            {{#each efficiency in efficiencies}}
-            <option>{{efficiency.value}}</option>
-            {{/each}}
-        </select>
+            <div class="form-group">
+                <label for="project" class="col-sm-2 text-right">Project</label>
+                <div class="col-sm-8">
+                    <select class="form-control" name="project">
+                        {{#each project in projects}}
+                        <option>{{project.name}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="cellType" class="col-sm-2 text-right">Cell Type</label>
+                <div class="col-sm-8">
+                    <select class="form-control" name="cellType">
+                        {{#each waferType in waferTypes}}
+                        <option>{{waferType.type}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="minEfficiency" class="col-sm-2 text-right">Min Efficiency</label>
+                <div class="col-sm-8">
+                    <select class="form-control" name="minEfficiency">
+                        {{#each efficiency in efficiencies}}
+                        <option>{{efficiency.value}}</option>
+                        {{/each}}
+                    </select>
+                </div>
 
+            </div>
+            <div class="form-group">
+                <label for="maxEfficiency" class="col-sm-2 text-right">Max Efficiency</label>
+                <div class="col-sm-8">
+                    <select class="form-control" name="maxEfficiency">
+                        {{#each efficiency in efficiencies}}
+                        <option>{{efficiency.value}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+            </div>
 
-        <select class="form-control" name="maxEfficiency">
-            {{#each efficiency in efficiencies}}
-            <option>{{efficiency.value}}</option>
-            {{/each}}
-        </select>
-        <input type="text" name="cellCount" placeholder="Quantity">
-        <input type="text" name="comment" placeholder="Comment">
-        <input type="submit" value="Order">
-    </form>
+            <div class="form-group">
+                <label for="cellCount" class="col-sm-2 text-right">Quantity</label>
+                <div class="col-sm-10">
+                    <input type="text" name="cellCount" placeholder="Quantity">
+                </div>
+            </div>
 
+            <div class="form-group">
+                <label for="comment" class="col-sm-2 text-right">Comment</label>
+                <div class="col-sm-10">
+                    <input type="text" name="comment" placeholder="Comment">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-2">
+                    <button type="submit" class="btn btn-primary" value="Order">Place Order</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
 
     <hr>
 
