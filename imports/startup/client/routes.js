@@ -45,6 +45,12 @@ FlowRouter.route('/orders/orders-list', {
     BlazeLayout.render('MasterLayout', {nav: "NavLayout", main: "OrdersListLayout"});
   }
 });
+FlowRouter.route('/orders/order-detail/:orderId', {
+  name: 'OrderDetail',
+  action(params, queryParams) {
+    BlazeLayout.render('MasterLayout', {nav: "NavLayout", main: "CellOrderDetailLayout"});
+  }
+});
 
 //--- ATTACH
 FlowRouter.route('/attach/new-cell-lot', {

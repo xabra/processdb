@@ -21,6 +21,7 @@ import './nav-layout.html';
 import './orders-list-layout.html';
 import './order-cells-layout.html';
 import './cell-order.html';
+import './cell-order-detail-layout.html';
 
 import './cell-lots-layout.html';
 import './cell-lot.html';
