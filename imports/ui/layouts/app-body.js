@@ -138,6 +138,7 @@ Template.OrdersListLayout.helpers({
     },
 
     openCount() {
+        console.log("Count - CellOrder", CellOrders.findOne({ _id: "2MCvGf9ez7axhE8pn"}).project);
         return CellOrders.find({ status: 'OPEN'}).count();
     },
 });
@@ -184,5 +185,14 @@ Template.OrderCellsLayout.events({
         target.cellCount.value = '';
         target.comment.value = '';
         return false;    // Prevent screen clear
+    },
+});
+
+Template.CellOrderDetailLayout.helpers({
+    cellOrder: function() {
+        var id = FlowRouter.getParam("orderId");
+        var order = CellOrders.findOne({_id: id});
+        console.log("cellOrder Id>", id, order);
+        return order;
     },
 });
