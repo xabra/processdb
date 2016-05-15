@@ -1,5 +1,6 @@
 import { Template } from 'meteor/templating';
 import { ReactiveDict } from 'meteor/reactive-dict';
+import { FlowRouter } from 'meteor/kadira:flow-router';
 
 import { Lots } from '../../api/lots.js';
 import { CellOrders } from '../../api/cell-orders.js';
@@ -50,6 +51,10 @@ Template.registerHelper('efficiencies', function() {
 
 Template.registerHelper('isEmpty', function(str) {
     return (!str || 0 === str.length);
+});
+
+Template.registerHelper('isEqual', function(str1, str2) {
+    return (str1 === str2);
 });
 
 // --- CellLots ---
@@ -138,7 +143,6 @@ Template.OrdersListLayout.helpers({
     },
 
     openCount() {
-        console.log("Count - CellOrder", CellOrders.findOne({ _id: "2MCvGf9ez7axhE8pn"}).project);
         return CellOrders.find({ status: 'OPEN'}).count();
     },
 });
@@ -184,6 +188,9 @@ Template.OrderCellsLayout.events({
 
         target.cellCount.value = '';
         target.comment.value = '';
+
+        FlowRouter.go('/orders/orders-list');
+
         return false;    // Prevent screen clear
     },
 });
@@ -192,7 +199,21 @@ Template.CellOrderDetailLayout.helpers({
     cellOrder: function() {
         var id = FlowRouter.getParam("orderId");
         var order = CellOrders.findOne({_id: id});
-        console.log("cellOrder Id>", id, order);
         return order;
+    },
+    /*
+    orderIsOpen: function(){
+        var isOpen = cellOrder.status == 'OPEN';
+        console.log("IsOpen: ", isOpen);
+        return isOpen;
+    }, */
+});
+
+
+Template.CellOrderDetailLayout.events({
+    'click #cancel-order'(event) {
+        var id = FlowRouter.getParam("orderId");
+        CellOrders.update({_id: id}, {$set: {status: 'CANCELED'}});
+        FlowRouter.go('/orders/orders-list');
     },
 });
