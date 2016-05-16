@@ -1,7 +1,6 @@
 <template name="CellLot">
     <tr>
-        <td><input type="checkbox" name="selected"></td>
-        <td>{{lotID}}</td>
+        <td><a href="/attach/cell-lots/{{_id}}">{{lotID}}</a></td>
         <td>{{cellType}}</td>
         <td>{{order}}</td>
         <td>{{by}}</td>
@@ -12,6 +11,10 @@
         <td>{{cellCount}}</td>
         <td>{{cameraRejects}}</td>
         <td>{{operatorRejects}}</td>
-        <td>{{lotComment}}</td>
+        <td>{{#if isEmpty (lotComment) }}
+            {{else}}
+            <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+            {{/if}}
+        </td>
     </tr>
 </template>

@@ -1,34 +1,102 @@
 <template name="NewCellLotLayout">
     <h2>New Lot</h2>
-    <form class="new-lot">
-        <input type="text" name="lotID" placeholder="Lot ID">
-        <input type="text" name="cellType" placeholder="Cell Type">
-        <input type="text" name="order" placeholder="Order">
-        <input type="text" name="recipe" placeholder="Recipe">
+    <hr>
 
-        <div class="btn-group" data-toggle="buttons">
-            <label class="btn btn-primary active">
-                <input type="radio" name="options" id="option1" autocomplete="off" checked> MANUFACTURING
-            </label>
-            <label class="btn btn-primary">
-                <input type="radio" name="options" id="option2" autocomplete="off"> ENGINEERING
-            </label>
-            <label class="btn btn-primary">
-                <input type="radio" name="options" id="option3" autocomplete="off"> PROCESS
-            </label>
-        </div>
+    <div class="container-fluid">
+        <form class="form-horizontal" id="new-cell-lot">
 
-        <input type="text" name="gridCount" placeholder="Grids">
-        <input type="text" name="waferCount" placeholder="Wafers">
-        <input type="text" name="meshCount" placeholder="Meshes">
-        <input type="text" name="cellCount" placeholder="Cells Out">
-        <input type="text" name="cameraRejects" placeholder="Camera Rejects">
-        <input type="text" name="operatorRejects" placeholder="Operator Rejects">
+            <div class="form-group">
+                <label class="col-sm-2 text-right">Lot Type</label>
+                <div class="btn-group col-sm-8" data-toggle="buttons">
+                    <label class="btn btn-primary active">
+                        <input type="radio" name="options" id="option1" autocomplete="off" checked> MANUFACTURING
+                    </label>
+                    <label class="btn btn-primary">
+                        <input type="radio" name="options" id="option2" autocomplete="off"> ENGINEERING
+                    </label>
+                    <label class="btn btn-primary">
+                        <input type="radio" name="options" id="option3" autocomplete="off"> PROCESS
+                    </label>
+                </div>
 
-        <textarea name="lotComment" rows="2" cols="50" placeholder="Comments"></textarea>
+            </div>
 
 
+            <div class="form-group">
+                <label for="cellType" class="col-sm-2 text-right">Cell Type</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" name="cellType" placeholder="Cell Type">
+                </div>
+            </div>
 
-        <input type="submit" value="Create">
-    </form>
+            <div class="form-group">
+                <label for="order" class="col-sm-2 text-right">Order</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" name="order" placeholder="Order">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="recipe" class="col-sm-2 text-right">Recipe</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" name="recipe" placeholder="Recipe">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="gridCount" class="col-sm-2 text-right">Grids</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" name="gridCount" placeholder="Grids">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="waferCount" class="col-sm-2 text-right">Wafers</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" name="waferCount" placeholder="Wafers">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="meshCount" class="col-sm-2 text-right">Meshes</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" name="meshCount" placeholder="Meshes">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="cellCount" class="col-sm-2 text-right">Cells Out</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" name="cellCount" placeholder="Cells Out">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="cameraRejects" class="col-sm-2 text-right">Camera Rejects</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" name="cameraRejects" placeholder="Camera Rejects">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="operatorRejects" class="col-sm-2 text-right">Operator Rejects</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" name="operatorRejects" placeholder="Operator Rejects">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="lotComment" class="col-sm-2 text-right">Comment</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" name="lotComment" placeholder="Comment">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-2">
+                    <button type="submit" class="btn btn-primary" value="Create">Create Lot</button>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
 </template>

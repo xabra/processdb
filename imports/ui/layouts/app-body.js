@@ -65,18 +65,16 @@ Template.CellLotsLayout.helpers({
 });
 
 Template.NewCellLotLayout.events({
-    'submit .new-lot'(event) {
+    'submit #new-cell-lot'(event) {
         // Prevent default browser form submit
         //event.preventDefault();
 
         // Get value from form element
         const target = event.target;
 
-        const lotID = target.lotID.value;
         const cellType = target.cellType.value;
         const order = target.order.value;
         const recipe = target.recipe.value;
-        //const lotType = target.lotType.value;
         const gridCount = target.gridCount.value;
         const waferCount = target.waferCount.value;
         const meshCount = target.meshCount.value;
@@ -88,11 +86,10 @@ Template.NewCellLotLayout.events({
 
         // Insert a new lot into the collection
         Lots.insert({
-            lotID,
+            lotID: getNextSequence("cellLotId"),
             cellType,
             order,
             recipe,
-            //lotType,
             gridCount,
             waferCount,
             meshCount,
@@ -105,8 +102,6 @@ Template.NewCellLotLayout.events({
         });
 
         // Clear form
-
-        target.lotID.value = '';
         target.cellType.value = '';
         target.order.value = '';
         target.recipe.value = '';
@@ -119,7 +114,7 @@ Template.NewCellLotLayout.events({
         target.operatorRejects.value = '';
         target.lotComment.value = '';
 
-
+        FlowRouter.go('/attach/cell-lots');
         return false;    // Prevent screen clear
     },
 });
@@ -201,12 +196,6 @@ Template.CellOrderDetailLayout.helpers({
         var order = CellOrders.findOne({_id: id});
         return order;
     },
-    /*
-    orderIsOpen: function(){
-        var isOpen = cellOrder.status == 'OPEN';
-        console.log("IsOpen: ", isOpen);
-        return isOpen;
-    }, */
 });
 
 
