@@ -5,34 +5,19 @@
     <div class="container-fluid">
         <form class="form-horizontal" id="new-cell-lot">
 
-            <div class="form-group">
-                <label class="col-sm-2 text-right">Lot Type</label>
-                <div class="btn-group col-sm-8" data-toggle="buttons">
-                    <label class="btn btn-primary active">
-                        <input type="radio" name="options" id="option1" autocomplete="off" checked> MANUFACTURING
-                    </label>
-                    <label class="btn btn-primary">
-                        <input type="radio" name="options" id="option2" autocomplete="off"> ENGINEERING
-                    </label>
-                    <label class="btn btn-primary">
-                        <input type="radio" name="options" id="option3" autocomplete="off"> PROCESS
-                    </label>
-                </div>
-
-            </div>
-
-
-            <div class="form-group">
-                <label for="cellType" class="col-sm-2 text-right">Cell Type</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" name="cellType" placeholder="Cell Type">
-                </div>
-            </div>
 
             <div class="form-group">
                 <label for="order" class="col-sm-2 text-right">Order</label>
                 <div class="col-sm-8">
                     <input type="text" class="form-control" name="order" placeholder="Order">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="cellType" class="col-sm-2 text-right">Cell Type</label>
+                <div class="col-sm-8">
+                    <p class="form-control-static">cell type here</p>
+                    <!-- <input type="text" class="form-control" name="cellType" placeholder="Cell Type"> -->
                 </div>
             </div>
 
@@ -44,21 +29,21 @@
             </div>
 
             <div class="form-group">
-                <label for="gridCount" class="col-sm-2 text-right">Grids</label>
+                <label for="gridCount" class="col-sm-2 text-right">Grids In</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" name="gridCount" placeholder="Grids">
+                    <input type="text" class="form-control" name="gridCount" placeholder="Grids In">
                 </div>
             </div>
             <div class="form-group">
-                <label for="waferCount" class="col-sm-2 text-right">Wafers</label>
+                <label for="waferCount" class="col-sm-2 text-right">Wafers In</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" name="waferCount" placeholder="Wafers">
+                    <input type="text" class="form-control" name="waferCount" placeholder="Wafers In">
                 </div>
             </div>
             <div class="form-group">
-                <label for="meshCount" class="col-sm-2 text-right">Meshes</label>
+                <label for="meshCount" class="col-sm-2 text-right">Meshes In</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" name="meshCount" placeholder="Meshes">
+                    <input type="text" class="form-control" name="meshCount" placeholder="Meshes In">
                 </div>
             </div>
 
@@ -92,7 +77,7 @@
 
             <div class="form-group">
                 <div class="col-sm-10 col-sm-offset-2">
-                    <button type="submit" class="btn btn-primary" value="Create">Create Lot</button>
+                    <button type="submit" class="btn btn-primary" value="Create">Save Lot</button>
                 </div>
             </div>
 
