@@ -64,6 +64,13 @@ Template.CellLotsLayout.helpers({
     },
 });
 
+Template.NewCellLotLayout.helpers({
+    cellOrders() {
+        return CellOrders.find({status: 'OPEN'});
+    },
+});
+
+
 Template.NewCellLotLayout.events({
     'submit #new-cell-lot'(event) {
         // Prevent default browser form submit
@@ -157,6 +164,7 @@ Template.OrderCellsLayout.events({
         // Get value from form element
         const target = event.target;
 
+        const orderType = target.orderType.value;
         const cellType = target.cellType.value;
         const project = target.project.value;
         const cellCount = target.cellCount.value;
@@ -167,6 +175,7 @@ Template.OrderCellsLayout.events({
         // Insert a new lot into the collection
         CellOrders.insert({
             orderID: getNextSequence("orderid"),
+            orderType,
             cellType,
             project,
             cellCount,

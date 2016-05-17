@@ -8,15 +8,28 @@
 
             <div class="form-group">
                 <label for="order" class="col-sm-2 text-right">Order</label>
+
+
+
                 <div class="col-sm-8">
+                    <select class="form-control" name="minEfficiency">
+                        {{#each order in cellOrders}}
+                        <option>{{order.orderID}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+
+
+                <!--<div class="col-sm-8">
                     <input type="text" class="form-control" name="order" placeholder="Order">
                 </div>
+            -->
             </div>
 
             <div class="form-group">
                 <label for="cellType" class="col-sm-2 text-right">Cell Type</label>
                 <div class="col-sm-8">
-                    <p class="form-control-static">cell type here</p>
+                    <p class="form-control-static">Informational cell type, and efficiencies here</p>
                     <!-- <input type="text" class="form-control" name="cellType" placeholder="Cell Type"> -->
                 </div>
             </div>
